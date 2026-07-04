@@ -155,7 +155,7 @@ pub fn decode(allocator: Allocator, data: []const u8) !Message {
 
     if (data.len < off + update_count * UPDATE_SIZE) return error.MessageTooShort;
 
-    const updates = if (update_count > 0) try allocator.alloc(GossipUpdate, update_count) else &[_]GossipUpdate{};
+    var updates = if (update_count > 0) try allocator.alloc(GossipUpdate, update_count) else &[_]GossipUpdate{};
 
     for (0..update_count) |i| {
         updates[i] = .{

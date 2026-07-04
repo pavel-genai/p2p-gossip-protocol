@@ -55,7 +55,7 @@ pub const Transport = struct {
             else => return err,
         };
 
-        const data = try self.allocator.alloc(u8, n);
+        var data = try self.allocator.alloc(u8, n);
         @memcpy(data, buf[0..n]);
 
         return .{
