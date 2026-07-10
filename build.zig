@@ -82,4 +82,25 @@ pub fn build(b: *std.Build) void {
         const run_t = b.addRunArtifact(t);
         test_step.dependOn(&run_t.step);
     }
+
+    // --- Coverage: emit test binaries for kcov ---
+    const cov_step = b.step("coverage", "Build test binaries for kcov");
+
+    for (test_files, 0..) |file, i| {
+        const t = b.addTest(.{
+            .root_source_file = b.path(file),
+            .target = target,
+            .optimize = optimize,
+        });
+        t.root_module.addImport("message", message_mod);
+        t.root_module.addImport("transport", transport_mod);
+        t.root_module.addImport("membership", membership_mod);
+        t.root_module.addImport("gossip", gossip_mod);
+
+        const install_t = b.addInstallArtifact(t, .{
+            .dest_dir = .{ .override = .{ .custom = "coverage" } },
+            .dest_sub_path = b.fmt("test_{d}", .{i}),
+        });
+        cov_step.dependOn(&install_t.step);
+    }
 }
