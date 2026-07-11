@@ -14,7 +14,7 @@ jobs:
       - run: zig build test
       - name: Install kcov
         run: |
-          wget https://github.com/koverifier/kcov/releases/download/v42/kcov-amd64.tar.gz
+          wget https://github.com/SimonKagstrom/kcov/releases/download/v42/kcov-amd64.tar.gz
           tar xzf kcov-amd64.tar.gz
           mv kcov-amd64/usr/local/bin/kcov /usr/local/bin/kcov
       - name: Build coverage binaries
