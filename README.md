@@ -1,7 +1,7 @@
 # P2P Gossip Protocol
 
-[![CI](https://github.com/ai-pavel/p2p-gossip-protocol/actions/workflows/ci.yml/badge.svg)](https://github.com/ai-pavel/p2p-gossip-protocol/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/ai-pavel/p2p-gossip-protocol/branch/main/graph/badge.svg)](https://codecov.io/gh/ai-pavel/p2p-gossip-protocol)
+[![CI](https://github.com/ai-pavel/prattle/actions/workflows/ci.yml/badge.svg)](https://github.com/ai-pavel/prattle/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/ai-pavel/prattle/branch/main/graph/badge.svg)](https://codecov.io/gh/ai-pavel/prattle)
 
 A peer-to-peer gossip protocol implementation in Zig 0.13, based on the SWIM
 (Scalable Weakly-consistent Infection-style Process Group Membership) protocol.
